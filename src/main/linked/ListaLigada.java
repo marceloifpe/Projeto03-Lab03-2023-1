@@ -6,29 +6,38 @@ public class ListaLigada implements EstruturaElementar{
 
     private No cabeca;
     private No cauda;
+    private int tamanho;
 
     public ListaLigada() {
         cabeca = null;
+        cauda = null;
+        tamanho = 0;
     }
 
     @Override
     public boolean buscaElemento(int valor) {
-      for(int i = 0; i < indice_fim; i++){
-         if(array[i] == valor){
+      No atual = cabeca;
+      while (atual != null) {
+        if(atual.getValor()==valor){
             return true;
-         }
+        }
+        atual = atual.getProximo();
       }
       return false;
     }
 
     @Override
     public int buscaIndice(int valor) {
-       for(i = 0; i < indice_fim; i++){
-        if(array[i] == valor){
-            return i;
+       No atual = cabeca;
+       int indice = 0;
+       while (atual != null) {
+        if(atual.getValor()==valor){
+            return indice;
         }
-       }
-       return -1;
+        atual = atual.getProximo();
+        indice++;
+      }
+      return -1;
     }
 
     @Override
