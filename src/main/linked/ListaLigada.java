@@ -5,6 +5,7 @@ import list.EstruturaElementar;
 public class ListaLigada implements EstruturaElementar{
 
     private No cabeca;
+    private No cauda;
 
     public ListaLigada() {
         cabeca = null;
@@ -12,14 +13,22 @@ public class ListaLigada implements EstruturaElementar{
 
     @Override
     public boolean buscaElemento(int valor) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'buscaElemento'");
+      for(int i = 0; i < indice_fim; i++){
+         if(array[i] == valor){
+            return true;
+         }
+      }
+      return false;
     }
 
     @Override
     public int buscaIndice(int valor) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'buscaIndice'");
+       for(i = 0; i < indice_fim; i++){
+        if(array[i] == valor){
+            return i;
+        }
+       }
+       return -1;
     }
 
     @Override
@@ -71,9 +80,17 @@ public class ListaLigada implements EstruturaElementar{
 
     @Override
     public void insereFim(int valor) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'insereFim'");
+        if (this.cauda == null){
+            this.cauda = new No(valor);
+        }else{
+            No n = new No(valor);
+            n.setProximo(this.cauda);
+            n = this.cauda ;
+        }
     }
+
+        
+    
 
     @Override
     public void remove(int valor) {
