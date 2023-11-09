@@ -89,12 +89,13 @@ public class ListaLigada implements EstruturaElementar{
 
     @Override
     public void insereFim(int valor) {
-        if (this.cauda == null){
-            this.cauda = new No(valor);
+        if (tamanho == 0){
+            insereInicio(valor);
         }else{
             No n = new No(valor);
             n.setProximo(this.cauda);
             n = this.cauda ;
+            tamanho ++;
         }
     }
 
